@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './Counter.scss'
+import styles from './Styles.module.scss'
 
 const Counter = () => {
 
@@ -9,9 +10,9 @@ const Counter = () => {
         setCount(count + 1);
     }
     return (
-        <div>
+        <div className={styles.mainBlock}>
             {count}
-            <button onClick={increment}>+</button>
+            <button onClick={increment} className={styles.green}>+</button>
         </div>
     );
 };
