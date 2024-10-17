@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root {
+
+  --ff-main: "Plus Jakarta Sans";
+
+  --fz-m: 1rem;
+  --lh-m: 125%;
+  --font-m: var(--fz-m) / var(--lh-m) var(--ff-main);
+
+  --fz-l: 2rem;
+  --lh-l: 125%;
+  --font-l: var(--fz-l) / var(--lh-l) var(--ff-main);
+}
