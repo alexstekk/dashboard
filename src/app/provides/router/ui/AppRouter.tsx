@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { routeConfig } from 'shared/config/routerConfig/routerConfig';
 
 const AppRouter = () => (
+    // TODO ADD LOADER (shared - spinner, widget - loader)
     <Suspense fallback={<div>Loading...</div>}>
         <Routes>
             {
