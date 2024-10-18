@@ -6,6 +6,13 @@ describe('classNames', () => {
     });
     test('All args', () => {
         const expected = 'someClass addClass red';
-        expect(classNames('someClass', { red: true }, ['addClass'])).toBe(expected);
+        expect(
+            classNames(
+                'someClass',
+                { red: true },
+                ['addClass'],
+            ),
+        )
+            .toBe(expected);
     });
 });
