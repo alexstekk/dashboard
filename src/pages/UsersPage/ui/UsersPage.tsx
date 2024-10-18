@@ -1,11 +1,10 @@
 import React from 'react';
+import { UiBlock } from 'shared/ui/UiBlock/UiBlock';
 
-const UsersPage = () => {
-    return (
-        <div>
-            UsersPage
-        </div>
-    );
-};
+const UsersPage = () => (
+    <UiBlock>
+        UsersPage
+    </UiBlock>
+);
 
 export default UsersPage;

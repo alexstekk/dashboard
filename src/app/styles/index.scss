@@ -4,12 +4,10 @@
 @import "themes/light";
 
 .app {
-  font:var(--font-m);
-
-  background:var(--bg-color);
-  color:var(--primary-color);
-
-  min-height: 100vh;
-  display: flex;
-  padding: 2rem;
+    font: var(--font-m);
+    background: var(--bg-color);
+    color: var(--primary-color);
+    display: flex;
+    column-gap: 2rem;
+    padding: 2rem;
 }

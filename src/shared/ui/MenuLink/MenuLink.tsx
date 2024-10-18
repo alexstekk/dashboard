@@ -1,25 +1,31 @@
-import {classNames} from "shared/lib/classNames/classNames";
-import styles from './MenuLink.module.scss'
-import {FC} from "react";
-import {Link, LinkProps, useMatch, useResolvedPath} from "react-router-dom";
+import { classNames } from 'shared/lib/classNames/classNames';
+import { FC, ReactNode } from 'react';
+import {
+    Link, LinkProps, NavLink, NavLinkProps, useMatch, useResolvedPath,
+} from 'react-router-dom';
+import styles from './MenuLink.module.scss';
 
-interface AppLinkProps extends LinkProps{
+interface MenuLinkProps extends NavLinkProps{
     className?: string;
+    icon? : ReactNode
 }
 
-export const MenuLink: FC<AppLinkProps> = (props) => {
-    const {to, className, children, ...otherProps} = props;
-
-    let resolved = useResolvedPath(to);
-    const isMatched = useMatch({path: resolved.pathname, end: true})
+export const MenuLink: FC<MenuLinkProps> = (props) => {
+    const {
+        to, className, children, state, ...otherProps
+    } = props;
 
     return (
-        <Link
+        <NavLink
             to={to}
-            className={classNames(styles.AppLink, {},[className, isMatched ? styles.active : ''])}
+            className={({ isActive }) => classNames(
+                styles.MenuLink,
+                { [styles.active]: isActive },
+                [className],
+            )}
             {...otherProps}
         >
             {children}
-        </Link>
+        </NavLink>
     );
 };

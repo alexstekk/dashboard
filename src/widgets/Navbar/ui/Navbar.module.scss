@@ -1,9 +1,5 @@
 .Navbar {
-  background-color: var(--elements-bg-color);
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  border-radius: var(--b-rad);
-  box-shadow: 0 2px 6px  rgba(37,83,185,0.1);
-  flex: 0 0 270px;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 270px;
 }

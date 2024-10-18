@@ -1,0 +1,12 @@
+- Webpack decomposited config
+  - loaders
+    - html, scss/module.scss, ~~ts~~ babel , svg, file
+  - plugins
+    - html, miniCssWebpack, progress, reactRefresh
+- FSD architectural methodology
+- ESLint config
+- StyleLint config
+- App
+  - Theme switcher, theme stores in localStorage
+  - 
+  - 
