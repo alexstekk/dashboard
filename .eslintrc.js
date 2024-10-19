@@ -39,6 +39,8 @@ module.exports = {
         'max-len': ['error', {
             ignoreComments: true,
             ignorePattern: '^import|export\\s.+\\sfrom\\s.+;$',
+            code: 100,
+
         }],
     },
     globals: {

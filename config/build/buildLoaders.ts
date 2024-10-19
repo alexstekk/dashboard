@@ -5,7 +5,15 @@ import { BuildOptions } from './types/config';
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const svgLoader = {
         test: /\.svg$/,
-        use: ['@svgr/webpack'],
+        use: {
+            loader: '@svgr/webpack',
+            options: {
+                // dimensions: false,
+                icon: '1.2em',
+            },
+
+        },
+
     };
 
     const babelLoader = {
@@ -45,7 +53,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                             isDev
                                 ? '[path][name]__[local]--[hash:base64:5]'
                                 : '[hash:base64:8]',
-
+                        exportLocalsConvention: 'camelCase',
                     },
                 },
             },

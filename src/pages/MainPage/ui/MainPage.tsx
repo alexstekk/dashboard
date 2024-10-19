@@ -1,10 +1,9 @@
 import React from 'react';
-import { UiBlock } from 'shared/ui/UiBlock/UiBlock';
 
 const MainPage = () => (
-    <UiBlock>
+    <div>
         MainPage
-    </UiBlock>
+    </div>
 );
 
 export default MainPage;

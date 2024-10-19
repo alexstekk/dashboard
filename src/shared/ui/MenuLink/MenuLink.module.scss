@@ -2,8 +2,21 @@
     padding: 1rem;
     display: flex;
     color: var(--primary-color);
+    text-decoration: none;
+    gap: 0.3rem;
+    transition: all 0.3s ease-in-out;
+    border-radius: var(--b-rad);
+
+    &:hover {
+        color: var(--nav-link-text-active);
+    }
+
+    &.active:hover {
+        color: inherit;
+    }
 }
 
 .active {
-    color: red;
+    background-color: var(--nav-link-bg-active);
+    color: var(--nav-link-text-active);
 }

@@ -10,7 +10,6 @@ export enum ButtonVariant {
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     className?: string;
     variant?: ButtonVariant;
-
 }
 
 export const Button: FC<ButtonProps> = (props) => {

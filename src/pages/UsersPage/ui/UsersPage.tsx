@@ -1,10 +1,14 @@
-import React from 'react';
-import { UiBlock } from 'shared/ui/UiBlock/UiBlock';
+import { classNames } from 'shared/lib/classNames/classNames';
+import styles from './UsersPage.module.scss';
 
-const UsersPage = () => (
-    <UiBlock>
+interface UsersPageProps {
+    className?: string;
+}
+
+const UsersPage = ({ className }: UsersPageProps) => (
+    <div className={classNames(styles.UsersPage, {}, [className])}>
         UsersPage
-    </UiBlock>
+    </div>
 );
 
 export default UsersPage;

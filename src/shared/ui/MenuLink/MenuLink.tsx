@@ -1,8 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { FC, ReactNode } from 'react';
-import {
-    Link, LinkProps, NavLink, NavLinkProps, useMatch, useResolvedPath,
-} from 'react-router-dom';
+import { NavLink, NavLinkProps } from 'react-router-dom';
 import styles from './MenuLink.module.scss';
 
 interface MenuLinkProps extends NavLinkProps{
@@ -12,7 +10,7 @@ interface MenuLinkProps extends NavLinkProps{
 
 export const MenuLink: FC<MenuLinkProps> = (props) => {
     const {
-        to, className, children, state, ...otherProps
+        to, className, children, state, icon, ...otherProps
     } = props;
 
     return (
@@ -25,7 +23,9 @@ export const MenuLink: FC<MenuLinkProps> = (props) => {
             )}
             {...otherProps}
         >
-            {children}
+
+            {icon}
+            <span>{children}</span>
         </NavLink>
     );
 };

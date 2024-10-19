@@ -14,12 +14,22 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
     const { toggleTheme, theme } = useTheme();
     return (
         <Button
-            variant={ButtonVariant.CLEAR}
+            variant={ButtonVariant.OUTLINE}
             className={classNames(styles.ThemeSwitcher, {}, [className])}
             onClick={toggleTheme}
         >
             {
-                theme === Theme.DARK ? <IconDark /> : <IconLight />
+                theme === Theme.DARK ? (
+                    <>
+                        <IconDark />
+                        <span>Light mode</span>
+                    </>
+                ) : (
+                    <>
+                        <IconLight />
+                        <span>Dark mode</span>
+                    </>
+                )
             }
 
         </Button>
