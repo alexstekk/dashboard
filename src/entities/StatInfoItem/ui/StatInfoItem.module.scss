@@ -1,0 +1,29 @@
+.StatInfoItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 100px;
+    transition: color 0.3s ease-in-out;
+    font-size: 1.5rem;
+    line-height: 125%;
+
+    &:visited {
+        color: var(--primary-color);
+    }
+
+    &:hover {
+        color: var(--link-btn-text-active);
+    }
+}
+
+.icon {
+
+}
+
+.title {
+
+}
+
+.count {
+    font-weight: var(--fw-bold);
+}

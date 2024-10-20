@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { FC, InputHTMLAttributes, ReactHTMLElement } from 'react';
+import { FC, InputHTMLAttributes } from 'react';
 import styles from './Input.module.scss';
 
 export enum InputVariants {
@@ -18,14 +18,16 @@ export const Input : FC<InputProps> = (props) => {
         className,
         title,
         variant,
-        testValue,
+        value,
+        ...otherProps
     } = props;
     return (
         <div className={styles.inputContainer}>
             <p>{title}</p>
             <input
                 className={classNames(styles.input, {}, [className, styles[variant]])}
-                value={testValue}
+                value={value}
+                {...otherProps}
             />
         </div>
     );

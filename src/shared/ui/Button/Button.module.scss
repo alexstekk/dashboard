@@ -8,25 +8,24 @@
     min-height: 45px;
     outline: none;
     border: none;
+    background: none;
+    border-radius: var(--b-rad);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        opacity: 0.7;
+    }
 }
 
 .clear {
-    background: none;
 }
 
 .outline {
-    background: none;
-    border-radius: var(--b-rad);
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
 }
 
 .solid {
     background: var(--primary-btn-color);
-    border-radius: var(--b-rad);
     color: var(--primary-inverted-color);
-    transition: opacity 0.3s ease-in-out;
-
-    &:hover {
-        opacity: 0.8;
-    }
 }

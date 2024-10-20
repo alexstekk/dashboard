@@ -9,6 +9,7 @@ import MainIcon from 'shared/assets/icons/solar--home-outline.svg';
 import ProductsIcon from 'shared/assets/icons/solar--widget-2-linear.svg';
 
 import { Logo } from 'shared/ui/Logo/Logo';
+import { LogoutBlock } from 'widgets/LogoutBlock';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -25,6 +26,9 @@ export const Navbar = ({ className }: NavbarProps) => (
             <MenuLink to={routePath.posts} icon={<PostsIcon />}>Posts</MenuLink>
             <MenuLink to={routePath.login} icon={<PostsIcon />}>Login</MenuLink>
         </div>
-        <ThemeSwitcher className={styles.themeSwitcher} />
+        <div className={styles.bottomBtns}>
+            <LogoutBlock />
+            <ThemeSwitcher className={styles.themeSwitcher} />
+        </div>
     </UiBlock>
 );

@@ -1,0 +1,24 @@
+.content {}
+
+.imgWrapper {
+    position: relative;
+    padding-bottom: 20%;
+    margin: -2rem -1rem 0;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        max-width: 100%;
+    }
+}
+
+.h1 {
+    text-align: center;
+    padding: 2rem 0 0;
+    font: var(--font-l);
+    font-weight: var(--fw-bold);
+}

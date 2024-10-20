@@ -1,4 +1,4 @@
-import { FC, FormEvent } from 'react';
+import { FC, FormEvent, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { UiBlock } from 'shared/ui/UiBlock/UiBlock';
 import { Input } from 'shared/ui/Input/Input';
@@ -12,12 +12,19 @@ interface LoginPageProps {
 }
 
 export const LoginPage :FC<LoginPageProps> = (props) => {
+    const { className } = props;
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log('form submit');
+        if (username && password) {
+            console.log('form submit with data:', { username, password });
+        } else {
+            console.log('fill inputs');
+        }
     };
-
-    const { className } = props;
 
     return (
         <div className={styles.pageContent}>
@@ -36,8 +43,8 @@ export const LoginPage :FC<LoginPageProps> = (props) => {
                     <p>Please, sign in with following username and password: admin, 123</p>
                 </div>
                 <form className={styles.authForm} onSubmit={handleSubmit}>
-                    <Input title="Username" testValue="admin" variant={ButtonVariant.OUTLINE} />
-                    <Input title="Password" testValue="123" variant={ButtonVariant.OUTLINE} />
+                    <Input title="Username" value={username} onChange={(e) => setUsername(e.target.value)} variant={ButtonVariant.OUTLINE} />
+                    <Input title="Password" value={password} onChange={(e) => setPassword(e.target.value)} variant={ButtonVariant.OUTLINE} />
                     <Button variant={ButtonVariant.SOLID} type="submit">
                         Sing in
                     </Button>

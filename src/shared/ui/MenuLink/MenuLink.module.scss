@@ -1,19 +1,18 @@
 .MenuLink {
     padding: 1rem;
     display: flex;
-    color: var(--primary-color);
     text-decoration: none;
     gap: 0.3rem;
-    transition: all 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
     border-radius: var(--b-rad);
+    color: var(--primary-color);
 
-    &:hover,
-    &.active:hover {
-        color: var(--nav-link-text-active);
+    &:hover {
+        color: var(--link-btn-text-active);
     }
 }
 
 .active {
-    background-color: var(--nav-link-bg-active);
-    color: var(--nav-link-text-active);
+    background-color: var(--link-btn-bg-active);
+    color: var(--link-btn-text-active);
 }

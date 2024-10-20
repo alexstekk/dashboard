@@ -1,9 +1,11 @@
 .UiBlock {
     padding: 1rem;
     border-radius: var(--b-rad);
-    box-shadow: 0 2px 6px  rgb(37 83 185 / 10%);
+    box-shadow: 0 2px 6px  rgb(0 0 0 / 20%);
     background-color: var(--elements-bg-color);
     display: flex;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .grow {
@@ -17,4 +19,8 @@
 .center {
     align-items: center;
     justify-content: center;
+}
+
+.noPadding {
+    padding: 0;
 }

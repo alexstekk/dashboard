@@ -6,9 +6,10 @@ import { UiBlock } from 'shared/ui/UiBlock/UiBlock';
 import { Header } from 'widgets/Header';
 import { LoginPage } from 'pages/LoginPage';
 
+export const isAuth = true;
+
 const App = () => {
     const { theme } = useTheme();
-    const isAuth = true;
 
     return (
         <div className={classNames('app', {}, [theme])}>

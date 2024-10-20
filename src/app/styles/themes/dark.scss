@@ -1,11 +1,12 @@
 .app.dark {
     --bg-color: #212121;
     --elements-bg-color: #444;
-    --primary-color: #e3e3e3;
+    --primary-color: #efefef;
+    --primary-inverted-color: #d8d8d8;
     --secondary-color: #dcdcdc;
-    --primary-btn-color: #1f87d7;
+    --primary-btn-color: #0085db;
     --secondary-btn-color: #c2c2c2;
-    --nav-link-bg-active: #1f87d7;
-    --nav-link-text-active: #0085db;
-    --border-color: #bbb;
+    --link-btn-bg-active: #0085db;
+    --link-btn-text-active: #ececec;
+    --border-color: #e6e6e6;
 }
