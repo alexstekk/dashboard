@@ -4,4 +4,8 @@
     gap: 0.5rem;
     font-size: 24px;
     font-weight: var(--fw-bold);
+
+    &:visited {
+        color: inherit;
+    }
 }

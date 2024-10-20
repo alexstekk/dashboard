@@ -7,12 +7,9 @@
     transition: all 0.3s ease-in-out;
     border-radius: var(--b-rad);
 
-    &:hover {
-        color: var(--nav-link-text-active);
-    }
-
+    &:hover,
     &.active:hover {
-        color: inherit;
+        color: var(--nav-link-text-active);
     }
 }
 

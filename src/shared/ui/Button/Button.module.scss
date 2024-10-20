@@ -4,17 +4,29 @@
     align-items: center;
     justify-content: center;
     gap: 0.3rem;
-    padding: 0.5rem 2rem;
+    padding: 0 2rem;
+    min-height: 45px;
+    outline: none;
+    border: none;
 }
 
 .clear {
     background: none;
-    border: none;
-    outline: none;
 }
 
 .outline {
     background: none;
     border-radius: var(--b-rad);
     border: 1px solid var(--primary-color);
+}
+
+.solid {
+    background: var(--primary-btn-color);
+    border-radius: var(--b-rad);
+    color: var(--primary-inverted-color);
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+        opacity: 0.8;
+    }
 }

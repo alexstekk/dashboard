@@ -1,0 +1,22 @@
+.input {
+    height: 45px;
+    border-radius: var(--b-rad);
+    outline: none;
+    border: none;
+    width: 100%;
+    font: var(--font-m);
+    padding: 0 1rem;
+}
+
+.inputContainer {
+    p {
+        font-size: 12px;
+        margin-bottom: 0.3rem;
+    }
+}
+
+.outline {
+    background: none;
+    border-radius: var(--b-rad);
+    border: 1px solid var(--border-color);
+}

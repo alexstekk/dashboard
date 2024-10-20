@@ -1,7 +1,8 @@
 .Navbar {
     display: flex;
     flex-direction: column;
-    flex: 0 0 270px;
+    overflow-y: auto;
+    gap: 1rem;
 }
 
 .themeSwitcher {
@@ -11,4 +12,9 @@
 .navbarLogo {
     padding: 1rem;
     margin-bottom: 1rem;
+}
+
+.menuItems {
+    display: grid;
+    gap: 0.5rem;
 }

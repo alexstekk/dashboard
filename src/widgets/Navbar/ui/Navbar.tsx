@@ -18,11 +18,13 @@ interface NavbarProps {
 export const Navbar = ({ className }: NavbarProps) => (
     <UiBlock className={classNames(styles.Navbar, {}, [className])}>
         <Logo className={styles.navbarLogo} />
-        <MenuLink to={routePath.main} icon={<MainIcon />}>Main</MenuLink>
-        <MenuLink to={routePath.users} icon={<UsersIcon />}>Users</MenuLink>
-        <MenuLink to={routePath.products} icon={<ProductsIcon />}>Products</MenuLink>
-        <MenuLink to={routePath.posts} icon={<PostsIcon />}>Posts</MenuLink>
-        <MenuLink to={routePath.login} icon={<PostsIcon />}>Login</MenuLink>
+        <div className={styles.menuItems}>
+            <MenuLink to={routePath.main} icon={<MainIcon />}>Main</MenuLink>
+            <MenuLink to={routePath.users} icon={<UsersIcon />}>Users</MenuLink>
+            <MenuLink to={routePath.products} icon={<ProductsIcon />}>Products</MenuLink>
+            <MenuLink to={routePath.posts} icon={<PostsIcon />}>Posts</MenuLink>
+            <MenuLink to={routePath.login} icon={<PostsIcon />}>Login</MenuLink>
+        </div>
         <ThemeSwitcher className={styles.themeSwitcher} />
     </UiBlock>
 );
