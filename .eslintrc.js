@@ -4,10 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-    ],
+    extends: ['plugin:react/recommended', 'airbnb'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -40,8 +37,9 @@ module.exports = {
             ignoreComments: true,
             ignorePattern: '^import|export\\s.+\\sfrom\\s.+;$',
             code: 100,
-
         }],
+        'no-param-reassign': 'off',
+        'react/prop-types': 'off',
     },
     globals: {
         __IS_DEV__: true,

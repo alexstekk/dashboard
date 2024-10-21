@@ -1,10 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/provides/StoreProvider/config/StateSchema';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import { localUserReducer } from 'entities/LocalUser';
+import { loginReducer } from 'features/AuthByUsername';
+import { StateSchema } from './StateSchema';
 
-export function createReduxStore(initState? :StateSchema) {
+export function createReduxStore(initialState?: StateSchema) {
+    const rootReducer: ReducersMapObject<StateSchema> = {
+        localUser: localUserReducer,
+        loginForm: loginReducer,
+    };
+
     return configureStore<StateSchema>({
-        reducer: {
-
-        },
+        reducer: rootReducer,
+        preloadedState: initialState,
     });
 }

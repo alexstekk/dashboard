@@ -3,6 +3,7 @@
     flex-direction: column;
     overflow-y: auto;
     gap: 1rem;
+    flex-shrink: 0;
 }
 
 .themeSwitcher {

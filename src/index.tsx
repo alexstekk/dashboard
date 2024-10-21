@@ -6,12 +6,12 @@ import { App } from 'app/App';
 import { StoreProvider } from 'app/provides/StoreProvider';
 
 render(
-    // <StoreProvider>
-    <BrowserRouter>
-        <ThemeProvider>
-            <App />
-        </ThemeProvider>
-    </BrowserRouter>,
-    // </StoreProvider>,
+    <StoreProvider>
+        <BrowserRouter>
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
+        </BrowserRouter>
+    </StoreProvider>,
     document.getElementById('root'),
 );
