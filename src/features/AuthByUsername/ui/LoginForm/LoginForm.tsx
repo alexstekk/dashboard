@@ -5,6 +5,7 @@ import { Logo } from 'shared/ui/Logo/Logo';
 import { Input } from 'shared/ui/Input/Input';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { selectLoginState } from '../../model/selectors/selectLoginState/selectLoginState';
 import { loginByUsername } from '../../model/services/LoginByUsername/LoginByUsername';
 import { loginActions } from '../../model/slice/loginSlice';
@@ -17,6 +18,7 @@ interface LoginFormProps {
 export const LoginForm = memo(
     ({ className }: LoginFormProps) => {
         const dispatch = useDispatch();
+        const navigate = useNavigate();
         const {
             username,
             password,
@@ -37,6 +39,7 @@ export const LoginForm = memo(
             if (username && password) {
                 console.log('form submit with data:', { username, password });
                 dispatch(loginByUsername({ username, password }));
+                navigate('/');
             } else {
                 console.log('fill inputs');
             }

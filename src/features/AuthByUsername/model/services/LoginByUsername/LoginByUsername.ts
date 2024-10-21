@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { LocalUser } from 'entities/LocalUser';
+import { LocalUser, localUserActions } from 'entities/LocalUser';
+import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 
 interface LoginByUsernameProps {
     username: string;
@@ -23,6 +24,8 @@ export const loginByUsername = createAsyncThunk<
             if (!response.data) {
                 throw new Error();
             }
+            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
+            thunkAPI.dispatch(localUserActions.setAuthData(response.data));
 
             return response.data;
         } catch (e) {

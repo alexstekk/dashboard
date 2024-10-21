@@ -24,7 +24,6 @@ export const Navbar = ({ className }: NavbarProps) => (
             <MenuLink to={routePath.users} icon={<UsersIcon />}>Users</MenuLink>
             <MenuLink to={routePath.products} icon={<ProductsIcon />}>Products</MenuLink>
             <MenuLink to={routePath.posts} icon={<PostsIcon />}>Posts</MenuLink>
-            <MenuLink to={routePath.login} icon={<PostsIcon />}>Login</MenuLink>
         </div>
         <div className={styles.bottomBtns}>
             <LogoutBlock />
