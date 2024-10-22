@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectUsersState } from 'entities/Users';
 import { Loader } from 'widgets/Loader';
 import { UsersList } from 'entities/Users/ui/UsersList/UsersList';
+import styles from './UsersPage.module.scss';
 
 interface UsersPageProps {
     className?: string;
@@ -28,7 +29,10 @@ const UsersPage = ({ className }: UsersPageProps) => {
     }
 
     return (
-        <UsersList data={data} />
+        <>
+            <h1 className={styles.title}>Users</h1>
+            <UsersList data={data} />
+        </>
     );
 };
 
