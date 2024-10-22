@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { StatInfoItem } from 'entities/StatInfoItem';
+import { StatInfoItem } from 'shared/ui/StatInfoItem';
 import UserIcon from 'shared/assets/icons/solar--user-circle-linear.svg';
 import PostsIcon from 'shared/assets/icons/solar--file-text-linear.svg';
 import ProductsIcon from 'shared/assets/icons/solar--shop-2-linear.svg';

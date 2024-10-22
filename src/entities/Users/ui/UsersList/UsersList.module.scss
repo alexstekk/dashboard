@@ -1,0 +1,41 @@
+.UsersList {
+
+}
+
+.userTable {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    position: relative;
+
+    & thead {
+        height: 2rem;
+        border-bottom: 1px solid var(--primary-color);
+    }
+
+    & th {
+        position: sticky;
+        top: -1rem;
+        background-color: var(--elements-bg-color);
+        z-index: 1;
+    }
+
+    & tr {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    & a {
+        display: inline-flex;
+        padding: 0 1rem;
+    }
+}
+
+.userTable {}
+
+.usersActions {
+    display: flex;
+    gap: 0.3rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+}

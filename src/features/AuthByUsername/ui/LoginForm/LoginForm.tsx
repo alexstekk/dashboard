@@ -4,8 +4,9 @@ import { UiBlock } from 'shared/ui/UiBlock/UiBlock';
 import { Logo } from 'shared/ui/Logo/Logo';
 import { Input } from 'shared/ui/Input/Input';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { selectLoginState } from '../../model/selectors/selectLoginState/selectLoginState';
 import { loginByUsername } from '../../model/services/LoginByUsername/LoginByUsername';
 import { loginActions } from '../../model/slice/loginSlice';
@@ -17,7 +18,7 @@ interface LoginFormProps {
 
 export const LoginForm = memo(
     ({ className }: LoginFormProps) => {
-        const dispatch = useDispatch();
+        const dispatch = useAppDispatch();
         const navigate = useNavigate();
         const {
             username,
@@ -34,12 +35,13 @@ export const LoginForm = memo(
             dispatch(loginActions.setPassword(password));
         }, [dispatch]);
 
-        const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
             event.preventDefault();
             if (username && password) {
                 console.log('form submit with data:', { username, password });
-                dispatch(loginByUsername({ username, password }));
+                await dispatch(loginByUsername({ username, password }));
                 navigate('/');
+                dispatch(loginActions.clearFormData());
             } else {
                 console.log('fill inputs');
             }
@@ -64,9 +66,8 @@ export const LoginForm = memo(
                         <h2>Your Admin Space</h2>
                     </div>
                     <div className={styles.tips}>
-                        <p>Please, sign in with following username and password: emilys, emilyspass</p>
                         <p>
-                            Or, just click
+                            Please, sign in with following username and password: emilys, emilyspass, or, just click
                             {' '}
                             <span
                                 onClick={fillInputs}
