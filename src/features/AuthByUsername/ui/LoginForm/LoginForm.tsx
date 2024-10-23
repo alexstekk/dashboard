@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { FormEvent, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { UiBlock } from 'shared/ui/UiBlock/UiBlock';
 import { Logo } from 'shared/ui/Logo/Logo';
 import { Input } from 'shared/ui/Input/Input';
@@ -7,13 +7,19 @@ import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useForm } from 'react-hook-form';
+import { loginByUsername } from 'features/AuthByUsername/model/services/LoginByUsername/LoginByUsername';
 import { selectLoginState } from '../../model/selectors/selectLoginState/selectLoginState';
-import { loginByUsername } from '../../model/services/LoginByUsername/LoginByUsername';
 import { loginActions } from '../../model/slice/loginSlice';
 import styles from './LoginForm.module.scss';
 
 interface LoginFormProps {
     className?: string;
+}
+
+interface AuthFormSchema {
+    username: string;
+    password: string;
 }
 
 export const LoginForm = memo(
@@ -27,6 +33,16 @@ export const LoginForm = memo(
             error,
         } = useSelector(selectLoginState);
 
+        const {
+            register,
+            formState: {
+                errors,
+            },
+            handleSubmit,
+        } = useForm({
+            mode: 'onBlur',
+        });
+
         const onChangeUsername = useCallback((username) => {
             dispatch(loginActions.setUsername(username));
         }, [dispatch]);
@@ -35,16 +51,9 @@ export const LoginForm = memo(
             dispatch(loginActions.setPassword(password));
         }, [dispatch]);
 
-        const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-            event.preventDefault();
-            if (username && password) {
-                console.log('form submit with data:', { username, password });
-                await dispatch(loginByUsername({ username, password }));
-                navigate('/');
-                dispatch(loginActions.clearFormData());
-            } else {
-                console.log('fill inputs');
-            }
+        const handleFormSubmit = (data: AuthFormSchema) => {
+            dispatch(loginByUsername({ username, password }));
+            dispatch(loginActions.clearFormData());
         };
 
         const fillInputs = () => {
@@ -67,7 +76,10 @@ export const LoginForm = memo(
                     </div>
                     <div className={styles.tips}>
                         <p>
-                            Please, sign in with following username and password: emilys, emilyspass, or, just click
+                            Please, sign in with following username and password:
+                            emilys, emilyspass,
+                            <br />
+                            or, just click
                             {' '}
                             <span
                                 onClick={fillInputs}
@@ -85,24 +97,31 @@ export const LoginForm = memo(
                     {
                         error && <p className={styles.error}>{error}</p>
                     }
-                    <form className={styles.authForm} onSubmit={handleSubmit}>
+                    <form className={styles.authForm} onSubmit={handleSubmit(handleFormSubmit)}>
                         <Input
                             title="Username"
                             value={username}
                             onChange={onChangeUsername}
                             variant={ButtonVariant.OUTLINE}
                             type="text"
-                            name="username"
+                            // name="username"
                             autoFocus
+                            register={register('username', { required: 'Username required' })}
                         />
+                        {errors?.username ? <p className={styles.error}>{errors?.username?.message}</p> : null}
                         <Input
                             title="Password"
                             value={password}
                             onChange={onChangePassword}
                             variant={ButtonVariant.OUTLINE}
                             type="text"
-                            name="password"
+                            // name="password"
+                            register={register('password', {
+                                required: 'Password required',
+                                minLength: { value: 5, message: 'Password min length is 5 letters' },
+                            })}
                         />
+                        {errors?.password ? <p className={styles.error}>{errors?.password?.message}</p> : null}
                         <Button
                             variant={ButtonVariant.SOLID}
                             type="submit"
