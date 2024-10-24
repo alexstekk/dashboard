@@ -1,6 +1,5 @@
 import React from 'react';
 import back from 'shared/assets/profilebg.jpg';
-import { StatInfoItem } from 'shared/ui/StatInfoItem/ui/StatInfoItem';
 import { StatInfo } from 'widgets/StatInfo/ui/StatInfo';
 import styles from './MainPage.module.scss';
 

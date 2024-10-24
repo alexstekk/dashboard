@@ -4,6 +4,9 @@
     overflow-y: auto;
     gap: 1rem;
     flex-shrink: 0;
+    height: calc(100vh - 4rem);
+    position: sticky;
+    top: 2rem;
 }
 
 .themeSwitcher {

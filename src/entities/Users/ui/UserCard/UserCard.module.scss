@@ -1,0 +1,17 @@
+.UserCard {
+    display: flex;
+    gap: 2rem;
+}
+
+.infoBlock {
+    display: grid;
+    gap: 1rem;
+
+    & span {
+        font-size: 12px;
+
+        &::after {
+            content: ": ";
+        }
+    }
+}

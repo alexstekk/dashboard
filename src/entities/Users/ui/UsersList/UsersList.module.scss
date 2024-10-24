@@ -1,12 +1,11 @@
 .UsersList {
-
+    position: relative;
 }
 
 .userTable {
     width: 100%;
     text-align: center;
     border-collapse: collapse;
-    position: relative;
 
     & thead {
         height: 2rem;
@@ -15,7 +14,7 @@
 
     & th {
         position: sticky;
-        top: -1rem;
+        top: 0;
         background-color: var(--elements-bg-color);
         z-index: 1;
     }
@@ -27,6 +26,12 @@
     & a {
         display: inline-flex;
         padding: 0 1rem;
+    }
+
+    & button {
+        display: inline-flex;
+        padding: 0 1rem;
+        min-height: unset;
     }
 }
 

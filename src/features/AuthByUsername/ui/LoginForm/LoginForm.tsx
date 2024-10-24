@@ -105,7 +105,7 @@ export const LoginForm = memo(
                             variant={ButtonVariant.OUTLINE}
                             type="text"
                             // name="username"
-                            autoFocus
+
                             register={register('username', { required: 'Username required' })}
                         />
                         {errors?.username ? <p className={styles.error}>{errors?.username?.message}</p> : null}

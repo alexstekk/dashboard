@@ -36,7 +36,7 @@ module.exports = {
         'max-len': ['error', {
             ignoreComments: true,
             ignorePattern: '^import|export\\s.+\\sfrom\\s.+;$',
-            code: 100,
+            code: 120,
         }],
         'no-param-reassign': 'off',
         'react/prop-types': 'off',

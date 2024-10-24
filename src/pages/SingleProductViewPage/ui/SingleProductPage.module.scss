@@ -1,0 +1,38 @@
+.SingleProductPage {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.infoWrapper {
+    display: flex;
+
+    p {
+        display: flex;
+        gap: 0.3rem;
+
+        span {
+            font-size: 14px;
+        }
+    }
+}
+
+.info {
+    display: grid;
+    gap: 2rem;
+}
+
+.reviews {
+    display: grid;
+    gap: 1rem;
+}
+
+.review {
+    padding: 1rem;
+    border-radius: var(--b-rad);
+    border: 1px solid var(--border-color);
+}
+
+.buttons {
+    margin-top: auto;
+}

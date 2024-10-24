@@ -1,4 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { ProductsList } from 'entities/Products/ui/ProductsList/ProductsList';
 import styles from './ProductsPage.module.scss';
 
 interface ProductsPageProps {
@@ -7,7 +8,7 @@ interface ProductsPageProps {
 
 const ProductsPage = ({ className }: ProductsPageProps) => (
     <div className={classNames(styles.ProductsPage, {}, [className])}>
-        ProductsPage
+        <ProductsList />
     </div>
 );
 

@@ -1,0 +1,64 @@
+.ProductCard {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--b-rad);
+    display: flex;
+    flex-direction: column;
+}
+
+.image {
+    display: flex;
+    position: relative;
+    padding-bottom: 100%;
+
+    img {
+        max-width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.cardBody {
+    padding: 1rem 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    color: inherit;
+    font-weight: var(--fw-bold);
+    flex-grow: 1;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price {
+    &::before {
+        content: "$";
+    }
+}
+
+.instock {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    &::before {
+        content: "";
+        display: flex;
+        width: 10px;
+        height: 10px;
+        background-color: green;
+        border-radius: 50%;
+    }
+}

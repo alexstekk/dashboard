@@ -33,7 +33,7 @@ export const Input : FC<InputProps> = memo((props) => {
         name,
         onChange,
         register,
-        onBlur,
+        onBlur = () => {},
         ...otherProps
     } = props;
 
@@ -46,8 +46,7 @@ export const Input : FC<InputProps> = memo((props) => {
             <p>{title}</p>
             <input
                 className={classNames(styles.input, {}, [className, styles[variant]])}
-                onBlur={(event) => {
-                    console.log('lost focus');
+                onBlur={() => {
                     onBlur();
                 }}
                 value={value}

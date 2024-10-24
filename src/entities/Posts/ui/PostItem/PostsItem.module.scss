@@ -1,0 +1,56 @@
+.PostsItem {
+    border-radius: var(--b-rad);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    display: grid;
+    gap: 1rem;
+
+    & button {
+        padding: 0;
+    }
+
+    a {
+        color: inherit;
+        border-bottom: dashed 1px var(--primary-color);
+    }
+}
+
+.postWrapper {
+
+}
+
+.header {
+
+}
+
+.body {
+    display: grid;
+    gap: 1rem;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+
+    svg {
+        path {
+            stroke: var(--primary-color);
+        }
+    }
+}
+
+.stat {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    opacity: 0.5;
+    font-size: 0.8rem;
+
+    div {
+        align-items: center;
+        display: flex;
+        gap: 0.3rem;
+    }
+}
+
+.actions{}

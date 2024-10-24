@@ -25,8 +25,20 @@ export interface User {
     role?: string
 }
 
+export interface EditFormSchema {
+    firstName?: string;
+    lastName?: string;
+    phone?: string;
+}
+
 export interface UsersSchema {
     data?: User[];
     isLoading?: boolean;
     error?: string;
+    formData?: EditFormSchema;
+}
+
+export interface UpdateUserSchema {
+    id: number | string,
+    data: EditFormSchema
 }

@@ -11,7 +11,7 @@ export const fetchUsers = createAsyncThunk<User[],
     'users/fetchUsers',
     async (_, { dispatch, rejectWithValue, extra: { api } }) => {
         try {
-            const response = await api.get('users');
+            const response = await api.get('users?limit=100');
             return response.data.users;
         } catch (e) {
             console.log(e);

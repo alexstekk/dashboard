@@ -11,3 +11,5 @@ export {
 export {
     selectUsersState,
 } from 'entities/Users/model/selectors/selectUsersState/selectUsersState';
+
+export { selectSingleUserById } from './model/selectors/selectSingleUserById/selectSingleUserById';

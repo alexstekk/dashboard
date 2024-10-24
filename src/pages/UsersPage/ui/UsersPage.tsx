@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectUsersState } from 'entities/Users';
 import { Loader } from 'widgets/Loader';
 import { UsersList } from 'entities/Users/ui/UsersList/UsersList';
+import { selectUsersQty } from 'entities/Users/model/selectors/selectUsersQty/selectUsersQty';
 import styles from './UsersPage.module.scss';
 
 interface UsersPageProps {
@@ -14,11 +15,12 @@ interface UsersPageProps {
 const UsersPage = ({ className }: UsersPageProps) => {
     const dispatch = useAppDispatch();
     const { isLoading, error, data } = useSelector(selectUsersState);
-
-    console.log(isLoading, error, data);
+    const qty = useSelector(selectUsersQty);
 
     useEffect(() => {
-        dispatch(fetchUsers());
+        if (!qty) {
+            dispatch(fetchUsers());
+        }
     }, []);
 
     if (isLoading) {
