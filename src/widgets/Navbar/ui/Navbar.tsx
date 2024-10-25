@@ -7,7 +7,6 @@ import UsersIcon from 'shared/assets/icons/solar--user-bold.svg';
 import PostsIcon from 'shared/assets/icons/solar--file-text-linear.svg';
 import MainIcon from 'shared/assets/icons/solar--home-outline.svg';
 import ProductsIcon from 'shared/assets/icons/solar--widget-2-linear.svg';
-
 import { Logo } from 'shared/ui/Logo/Logo';
 import { LogoutBlock } from 'widgets/LogoutBlock';
 import styles from './Navbar.module.scss';

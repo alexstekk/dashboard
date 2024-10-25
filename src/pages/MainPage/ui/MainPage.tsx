@@ -1,6 +1,6 @@
 import React from 'react';
 import back from 'shared/assets/profilebg.jpg';
-import { StatInfo } from 'widgets/StatInfo/ui/StatInfo';
+import { StatInfo } from 'widgets/StatInfo';
 import styles from './MainPage.module.scss';
 
 const MainPage = () => (

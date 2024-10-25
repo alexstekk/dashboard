@@ -1,16 +1,18 @@
 import { useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { fetchUsers } from 'entities/Users/model/service/fetchUsers/fetchUsers';
+import {
+    fetchUsers,
+    selectUsersPageNumber,
+    selectUsersPageSize,
+    selectUsersQty,
+    selectUsersState,
+    selectUsersTotal,
+    usersActions,
+    UsersList,
+} from 'entities/Users';
 import { useSelector } from 'react-redux';
-import { selectUsersState, User, usersActions } from 'entities/Users';
 import { Loader } from 'widgets/Loader';
-import { UsersList } from 'entities/Users/ui/UsersList/UsersList';
-import { selectUsersQty } from 'entities/Users/model/selectors/selectUsersQty/selectUsersQty';
-import { selectUsersPageSize } from 'entities/Users/model/selectors/selectUsersPageSize/selectUsersPageSize';
-import { selectUsersPageNumber } from 'entities/Users/model/selectors/selectUsersPageNumber/selectUsersPageNumber';
-import { selectUsersTotal } from 'entities/Users/model/selectors/SelectUsersTotal/SelectUsersTotal';
 import { Pagination } from 'widgets/Pagination';
-import { paginate } from 'shared/lib/paginate/paginate';
 import { usePaginate } from 'shared/lib/hooks/usePaginate/usePaginate';
 import styles from './UsersPage.module.scss';
 

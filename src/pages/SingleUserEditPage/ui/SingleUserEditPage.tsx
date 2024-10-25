@@ -5,16 +5,21 @@ import { Input, InputVariants } from 'shared/ui/Input/Input';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Loader } from 'widgets/Loader';
-import { selectUsersState, usersActions } from 'entities/Users';
 import {
-    selectSingleUserFirstname,
-} from 'entities/Users/model/selectors/selectSingleUserFirstname/selectSingleUserFirstname';
+    fetchUsers,
+    selectFormDataLastName,
+    selectFormDataPhone,
+    selectFormDataUserName,
+    selectSingleUserFirstnameById,
+    selectSingleUserLastnameById,
+    selectSingleUserPhoneById,
+    selectUsersQty,
+    selectUsersState,
+    updateSingleUserData,
+    usersActions,
+} from 'entities/Users';
 import { StateSchema } from 'app/provides/StoreProvider/config/StateSchema';
 import { useEffect } from 'react';
-import { fetchUsers } from 'entities/Users/model/service/fetchUsers/fetchUsers';
-import { selectUsersQty } from 'entities/Users/model/selectors/selectUsersQty/selectUsersQty';
-import { selectFormDataUserName } from 'entities/Users/model/selectors/selectFormDataUserName/selectFormDataUserName';
-import { updateSingleUserData } from 'entities/Users/model/service/updateSingleUserData/updateSingleUserData';
 import styles from './SingleUserEditPage.module.scss';
 
 interface SingleUserEditPageProps {
@@ -27,29 +32,36 @@ const SingleUserEditPage = ({ className }: SingleUserEditPageProps) => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const firstName = useSelector((state:StateSchema) => selectSingleUserFirstname(state, Number(id)));
+    const firstName = useSelector((state:StateSchema) => selectSingleUserFirstnameById(state, Number(id)));
     const formFirstName = useSelector(selectFormDataUserName);
 
-    const lastName = 'lastName';
-    const phone = 'phone';
+    const lastName = useSelector((state:StateSchema) => selectSingleUserLastnameById(state, Number(id)));
+    const formLastname = useSelector(selectFormDataLastName);
+
+    const phone = useSelector((state:StateSchema) => selectSingleUserPhoneById(state, Number(id)));
+    const formPhone = useSelector(selectFormDataPhone);
+
     const { isLoading, error } = useSelector(selectUsersState);
     const qty = useSelector(selectUsersQty);
 
     const onChangeFirstname = (firstname:string) => {
         dispatch(usersActions.setFormDataFirstname(firstname));
     };
-    const onChangeLastname = (lastname:string) => { };
-    const onChangePhone = (phone:string) => { };
+    const onChangeLastname = (lastname:string) => {
+        dispatch(usersActions.setFormDataLastname(lastname));
+    };
+    const onChangePhone = (phone:string) => {
+        dispatch(usersActions.setFormDataPhone(phone));
+    };
 
-    // @ts-ignore
     const saveNewSingleUserData = async () => {
         const data = {
             firstName: formFirstName,
-            lastName: 'hello',
+            lastName: formLastname,
+            phone: formPhone,
         };
 
         await dispatch(updateSingleUserData({ id, data }));
-        console.log({ id, data });
         navigate(-1);
     };
 
@@ -84,13 +96,13 @@ const SingleUserEditPage = ({ className }: SingleUserEditPageProps) => {
                 <Input
                     title="Lastname"
                     variant={InputVariants.OUTLINE}
-                    value={lastName}
+                    value={formLastname}
                     onChange={onChangeLastname}
                 />
                 <Input
                     title="Phone"
                     variant={InputVariants.OUTLINE}
-                    value={phone}
+                    value={formPhone}
                     onChange={onChangePhone}
                 />
 
@@ -110,7 +122,6 @@ const SingleUserEditPage = ({ className }: SingleUserEditPageProps) => {
                 >
                     Back
                 </Button>
-
             </div>
         </div>
     );

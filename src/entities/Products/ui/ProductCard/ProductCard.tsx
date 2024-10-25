@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Product } from 'entities/Products/model/types/Product';
 import { Link } from 'react-router-dom';
+import { Product } from '../../model/types/Product';
 import styles from './ProductCard.module.scss';
 
 interface ProductCardProps {

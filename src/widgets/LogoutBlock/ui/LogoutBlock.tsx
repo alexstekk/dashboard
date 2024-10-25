@@ -13,7 +13,6 @@ export const LogoutBlock = ({ className }: LogoutBlockProps) => {
     const dispatch = useDispatch();
 
     const handleLogout = () => {
-        console.log('logout');
         dispatch(localUserActions.logout());
     };
 

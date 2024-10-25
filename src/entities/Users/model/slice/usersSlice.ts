@@ -25,6 +25,12 @@ export const usersSlice = createSlice({
         setFormDataFirstname: (state, action) => {
             state.formData.firstName = action.payload;
         },
+        setFormDataLastname: (state, action) => {
+            state.formData.lastName = action.payload;
+        },
+        setFormDataPhone: (state, action) => {
+            state.formData.phone = action.payload;
+        },
         setFormDataForUser: (state, action) => {
             state.formData = { ...action.payload };
         },

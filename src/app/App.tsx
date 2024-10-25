@@ -9,8 +9,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { localUserActions, selectLocalUserAuthData } from 'entities/LocalUser';
 
-export const isAuth = false;
-
 const App = () => {
     const { theme } = useTheme();
     const dispatch = useDispatch();

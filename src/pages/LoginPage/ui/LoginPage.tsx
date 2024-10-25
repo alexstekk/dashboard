@@ -3,7 +3,6 @@ import { LoginForm } from 'features/AuthByUsername';
 
 interface LoginPageProps {
     className?: string;
-
 }
 
 export const LoginPage :FC<LoginPageProps> = (props) => {

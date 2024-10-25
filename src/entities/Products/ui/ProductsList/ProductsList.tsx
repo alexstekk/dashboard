@@ -1,21 +1,19 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Loader } from 'widgets/Loader';
-import { ProductCard } from 'entities/Products/ui/ProductCard/ProductCard';
-import { Product } from 'entities/Products/model/types/Product';
 import { useSelector } from 'react-redux';
-import { selectProductsState } from 'entities/Products/model/selectors/selectProductsState/selectProductsState';
 import { useEffect } from 'react';
-import { selectProductsQty } from 'entities/Products/model/selectors/selectProductsQty/selectProductsQty';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { fetchProducts } from 'entities/Products/model/service/fetchProducts/fetchProducts';
 import { usePaginate } from 'shared/lib/hooks/usePaginate/usePaginate';
-import { selectProductsPageSize } from 'entities/Products/model/selectors/selectProductsPageSize/selectProductsPageSize';
-import {
-    selectProductsPageNumber,
-} from 'entities/Products/model/selectors/selectProductsPageNumber/selectProductsPageNumber';
-import { selectProductsTotal } from 'entities/Products/model/selectors/selectProductsTotal/selectProductsTotal';
 import { Pagination } from 'widgets/Pagination';
-import { productsActions } from 'entities/Products/model/slice/productsSlice';
+import { productsActions } from '../../model/slice/productsSlice';
+import { selectProductsTotal } from '../../model/selectors/selectProductsTotal/selectProductsTotal';
+import { selectProductsPageNumber } from '../../model/selectors/selectProductsPageNumber/selectProductsPageNumber';
+import { selectProductsPageSize } from '../../model/selectors/selectProductsPageSize/selectProductsPageSize';
+import { fetchProducts } from '../../model/service/fetchProducts/fetchProducts';
+import { selectProductsQty } from '../../model/selectors/selectProductsQty/selectProductsQty';
+import { selectProductsState } from '../../model/selectors/selectProductsState/selectProductsState';
+import { Product } from '../../model/types/Product';
+import { ProductCard } from '../ProductCard/ProductCard';
 import styles from './ProductsList.module.scss';
 
 interface ProductsListProps {

@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Post } from 'entities/Posts/model/types/Post';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import LikeIcon from 'shared/assets/icons/solar--like-outline.svg';
 import DislikeIcon from 'shared/assets/icons/solar--dislike-outline.svg';
@@ -7,10 +6,9 @@ import ViewsIcon from 'shared/assets/icons/solar--eye-outline.svg';
 import DeleteIcon from 'shared/assets/icons/user-delete-icon.svg';
 import { useSelector } from 'react-redux';
 import { StateSchema } from 'app/provides/StoreProvider/config/StateSchema';
-import {
-    selectSingleUserFirstname,
-} from 'entities/Users/model/selectors/selectSingleUserFirstname/selectSingleUserFirstname';
+import { selectSingleUserFirstnameById } from 'entities/Users';
 import { Link } from 'react-router-dom';
+import { Post } from '../../model/types/Post';
 import styles from './PostsItem.module.scss';
 
 interface PostsItemProps {
@@ -20,7 +18,7 @@ interface PostsItemProps {
 }
 
 export const PostsItem = ({ className, post, handleDelete }: PostsItemProps) => {
-    const autor = useSelector((state:StateSchema) => selectSingleUserFirstname(state, post.userId));
+    const autor = useSelector((state:StateSchema) => selectSingleUserFirstnameById(state, post.userId));
 
     return (
         <div className={classNames(styles.PostsItem, {}, [className])}>

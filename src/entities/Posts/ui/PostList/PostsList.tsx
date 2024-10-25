@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Post } from 'entities/Posts/model/types/Post';
-import { PostsItem } from 'entities/Posts/ui/PostItem/PostsItem';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { deletePost } from 'entities/Posts/model/service/deletePost/deletePost';
+import { deletePost } from '../../model/service/deletePost/deletePost';
+import { PostsItem } from '../../ui/PostItem/PostsItem';
+import { Post } from '../../model/types/Post';
 import styles from './PostsList.module.scss';
 
 interface PostsListProps {

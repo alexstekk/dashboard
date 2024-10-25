@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ProductsList } from 'entities/Products/ui/ProductsList/ProductsList';
+import { ProductsList } from 'entities/Products';
 import styles from './ProductsPage.module.scss';
 
 interface ProductsPageProps {

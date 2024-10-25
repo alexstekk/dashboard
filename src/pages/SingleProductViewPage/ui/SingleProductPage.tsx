@@ -3,12 +3,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Loader } from 'widgets/Loader';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { selectProductsState } from 'entities/Products/model/selectors/selectProductsState/selectProductsState';
-import { selectProductById } from 'entities/Products/model/selectors/selectProductById/selectProductById';
+import {
+    selectProductsState, selectProductById, selectProductsQty, fetchProducts,
+} from 'entities/Products';
 import { StateSchema } from 'app/provides/StoreProvider/config/StateSchema';
-import { selectProductsQty } from 'entities/Products/model/selectors/selectProductsQty/selectProductsQty';
 import { useEffect } from 'react';
-import { fetchProducts } from 'entities/Products/model/service/fetchProducts/fetchProducts';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import LikeIcon from 'shared/assets/icons/solar--like-outline.svg';
 import DislikeIcon from 'shared/assets/icons/solar--dislike-outline.svg';
@@ -43,7 +42,6 @@ const SingleProductPage = ({ className }: SingleProductPageProps) => {
     }
 
     return (
-
         <div className={classNames(styles.SingleProductPage, {}, [className])}>
             <div className={styles.infoWrapper}>
                 <div className={styles.image}>
