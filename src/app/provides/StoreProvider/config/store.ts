@@ -4,7 +4,7 @@ import { loginReducer } from 'features/AuthByUsername';
 import { $api } from 'shared/api/api';
 import { usersReducer } from 'entities/Users';
 import { postsReducer } from 'entities/Posts/model/slice/postsSlice';
-import { productsApi } from 'entities/Products/model/service/fetchProducts/fetchProducts';
+import { productsReducer } from 'entities/Products/model/slice/productsSlice';
 import { StateSchema } from './StateSchema';
 
 export function createReduxStore(initialState?: StateSchema) {
@@ -13,7 +13,7 @@ export function createReduxStore(initialState?: StateSchema) {
         loginForm: loginReducer,
         users: usersReducer,
         posts: postsReducer,
-        [productsApi.reducerPath]: productsApi.reducer,
+        products: productsReducer,
     };
 
     return configureStore({
@@ -25,7 +25,7 @@ export function createReduxStore(initialState?: StateSchema) {
                     api: $api,
                 },
             },
-        }).concat(productsApi.middleware),
+        }),
     });
 }
 

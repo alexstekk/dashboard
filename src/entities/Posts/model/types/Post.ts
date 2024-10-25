@@ -1,6 +1,3 @@
-import { User } from 'entities/Users';
-import { EditFormSchema } from 'entities/Users/model/types/Users';
-
 export type Post = {
     id: number
     title: string
@@ -18,4 +15,7 @@ export interface PostsSchema {
     data?: Post[];
     isLoading?: boolean;
     error?: string;
+    pageSize?: number;
+    pageNumber?: number;
+    total?: number;
 }

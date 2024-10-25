@@ -40,7 +40,7 @@ export const LoginForm = memo(
             },
             handleSubmit,
         } = useForm({
-            mode: 'onBlur',
+            mode: 'onSubmit',
         });
 
         const onChangeUsername = useCallback((username) => {

@@ -20,7 +20,7 @@ interface PostsItemProps {
 }
 
 export const PostsItem = ({ className, post, handleDelete }: PostsItemProps) => {
-    const autor = useSelector((state:StateSchema) => selectSingleUserFirstname(state, post.userId)) || 'anonymous';
+    const autor = useSelector((state:StateSchema) => selectSingleUserFirstname(state, post.userId));
 
     return (
         <div className={classNames(styles.PostsItem, {}, [className])}>
@@ -28,9 +28,8 @@ export const PostsItem = ({ className, post, handleDelete }: PostsItemProps) => 
             <div className={styles.header}>
                 Post by
                 {' '}
-                {
-                    post.userId < 100 ? (<Link to={`/users/view/${post.userId}`}>{autor}</Link>) : ('anonymous')
-                }
+
+                <Link to={`/users/view/${post.userId}`}>{autor}</Link>
 
             </div>
             <div className={styles.body}>

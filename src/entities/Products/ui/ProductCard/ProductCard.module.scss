@@ -4,6 +4,11 @@
     border-radius: var(--b-rad);
     display: flex;
     flex-direction: column;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .image {
@@ -59,6 +64,22 @@
         width: 10px;
         height: 10px;
         background-color: green;
+        border-radius: 50%;
+    }
+}
+
+.outstock {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    line-height: 125%;
+
+    &::before {
+        content: "";
+        display: flex;
+        width: 10px;
+        height: 10px;
+        background-color: gray;
         border-radius: 50%;
     }
 }

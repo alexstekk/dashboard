@@ -8,6 +8,7 @@ interface ProductsPageProps {
 
 const ProductsPage = ({ className }: ProductsPageProps) => (
     <div className={classNames(styles.ProductsPage, {}, [className])}>
+        <h1 className={styles.title}>Products</h1>
         <ProductsList />
     </div>
 );

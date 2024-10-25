@@ -1,3 +1,11 @@
 .ProductsPage {
     flex: 0 1 600px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+h1 {
+    text-align: center;
+    padding: 1rem 0 2rem;
 }

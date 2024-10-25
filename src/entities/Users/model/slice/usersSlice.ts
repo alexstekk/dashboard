@@ -13,6 +13,9 @@ const initialState: UsersSchema = {
         phone: '',
     },
     data: [],
+    pageSize: 15,
+    pageNumber: 1,
+    total: 0,
 };
 
 export const usersSlice = createSlice({
@@ -25,15 +28,19 @@ export const usersSlice = createSlice({
         setFormDataForUser: (state, action) => {
             state.formData = { ...action.payload };
         },
+        setPageNumber: (state, action) => {
+            state.pageNumber = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchUsers.pending, (state, action) => {
             state.isLoading = true;
             state.error = null;
         });
-        builder.addCase(fetchUsers.fulfilled, (state, action:PayloadAction<User[]>) => {
+        builder.addCase(fetchUsers.fulfilled, (state, action) => {
             state.isLoading = false;
-            state.data = action.payload;
+            state.data = action.payload.users;
+            state.total = action.payload.total;
             state.error = null;
         });
         builder.addCase(fetchUsers.rejected, (state, action:PayloadAction<string>) => {

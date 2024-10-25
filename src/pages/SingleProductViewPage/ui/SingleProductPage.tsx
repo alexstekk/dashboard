@@ -1,8 +1,17 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useNavigate, useParams } from 'react-router-dom';
-import { productsApi } from 'entities/Products/model/service/fetchProducts/fetchProducts';
 import { Loader } from 'widgets/Loader';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
+import { useSelector } from 'react-redux';
+import { selectProductsState } from 'entities/Products/model/selectors/selectProductsState/selectProductsState';
+import { selectProductById } from 'entities/Products/model/selectors/selectProductById/selectProductById';
+import { StateSchema } from 'app/provides/StoreProvider/config/StateSchema';
+import { selectProductsQty } from 'entities/Products/model/selectors/selectProductsQty/selectProductsQty';
+import { useEffect } from 'react';
+import { fetchProducts } from 'entities/Products/model/service/fetchProducts/fetchProducts';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import LikeIcon from 'shared/assets/icons/solar--like-outline.svg';
+import DislikeIcon from 'shared/assets/icons/solar--dislike-outline.svg';
 import styles from './SingleProductPage.module.scss';
 
 interface SingleProductPageProps {
@@ -12,9 +21,19 @@ interface SingleProductPageProps {
 const SingleProductPage = ({ className }: SingleProductPageProps) => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const { data, isLoading, error } = productsApi.useFetchProductByIdQuery(id);
+    const dispatch = useAppDispatch();
 
-    console.log(data);
+    const { isLoading, error } = useSelector(selectProductsState);
+
+    const data = useSelector((state: StateSchema) => selectProductById(state, Number(id)));
+
+    const productQty = useSelector(selectProductsQty);
+
+    useEffect(() => {
+        if (!productQty) {
+            dispatch(fetchProducts());
+        }
+    }, []);
 
     if (isLoading) {
         return <Loader />;
@@ -24,32 +43,38 @@ const SingleProductPage = ({ className }: SingleProductPageProps) => {
     }
 
     return (
+
         <div className={classNames(styles.SingleProductPage, {}, [className])}>
             <div className={styles.infoWrapper}>
                 <div className={styles.image}>
-                    <img src={data.thumbnail} alt="" />
+                    <img src={data?.thumbnail} alt="" />
                 </div>
                 <div className={styles.info}>
                     <h3>
 
-                        {data.title}
+                        {data?.title}
                     </h3>
                     <p>
                         <span>Brand:</span>
-                        {data.brand}
+                        {data?.brand}
                     </p>
                     <p>
                         <span>Price:</span>
-                        {data.price}
+                        {data?.price}
                     </p>
                     <p>
                         <span>Availability:</span>
-                        {data.availabilityStatus}
+                        {data?.availabilityStatus}
                     </p>
                     <div className={styles.reviews}>
                         <h4>Recent reviews</h4>
                         {
-                            data.reviews.map((rev) => <p className={styles.review}>{rev.comment}</p>)
+                            data?.reviews.map((rev, i) => (
+                                <p key={i} className={styles.review}>
+                                    {rev.rating > 3 ? <LikeIcon /> : <DislikeIcon />}
+                                    {rev.comment}
+                                </p>
+                            ))
                         }
                     </div>
                 </div>

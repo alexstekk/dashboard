@@ -1,0 +1,36 @@
+.Pagination {
+    padding: 2rem 0;
+
+    button {
+        padding: 0.3rem;
+        width: 35px;
+        height: 35px;
+        min-height: unset;
+    }
+
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.activePage {
+    border-color: var(--primary-btn-color);
+}
+
+.page {
+
+}
+
+.pagesWrapper {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+}
+
+button.page,
+button.activePage {
+    padding: 0.3rem;
+    min-height: unset;
+    width: 35px;
+    height: 35px;
+}

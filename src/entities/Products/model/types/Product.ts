@@ -45,4 +45,7 @@ export interface ProductsSchema {
     data?: Product[];
     isLoading?: boolean;
     error?: string;
+    pageSize?: number;
+    pageNumber?: number;
+    total?: number;
 }

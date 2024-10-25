@@ -36,6 +36,9 @@ export interface UsersSchema {
     isLoading?: boolean;
     error?: string;
     formData?: EditFormSchema;
+    pageSize: number;
+    pageNumber: number;
+    total: number;
 }
 
 export interface UpdateUserSchema {

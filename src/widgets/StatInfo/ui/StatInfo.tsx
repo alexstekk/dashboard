@@ -11,6 +11,9 @@ import { useEffect } from 'react';
 import { fetchUsers } from 'entities/Users/model/service/fetchUsers/fetchUsers';
 import { selectPostsQty } from 'entities/Posts/model/selectors/selectPostsQty/selectPostsQty';
 import { fetchPosts } from 'entities/Posts/model/service/fetchPosts/fetchPosts';
+import { selectProductsQty } from 'entities/Products/model/selectors/selectProductsQty/selectProductsQty';
+import { fetchProducts } from 'entities/Products/model/service/fetchProducts/fetchProducts';
+import { Loader } from 'widgets/Loader';
 import styles from './StatInfo.module.scss';
 
 interface StatInfoProps {
@@ -21,6 +24,12 @@ export const StatInfo = ({ className }: StatInfoProps) => {
     const dispatch = useAppDispatch();
     const usersQty = useSelector(selectUsersQty);
     const postsQty = useSelector(selectPostsQty);
+    const productQty = useSelector(selectProductsQty);
+    useEffect(() => {
+        if (!productQty) {
+            dispatch(fetchProducts());
+        }
+    }, []);
 
     useEffect(() => {
         if (!usersQty) {
@@ -34,11 +43,15 @@ export const StatInfo = ({ className }: StatInfoProps) => {
         }
     }, []);
 
+    if (!postsQty || !usersQty || !productQty) {
+        return <Loader />;
+    }
+
     return (
         <div className={classNames(styles.StatInfo, {}, [className])}>
             <StatInfoItem icon={<UserIcon />} title="Users" count={usersQty} to={AppRoutes.USERS} />
             <StatInfoItem icon={<PostsIcon />} title="Posts" count={postsQty} to={AppRoutes.POSTS} />
-            <StatInfoItem icon={<ProductsIcon />} title="Products" count={153} to={AppRoutes.PRODUCTS} />
+            <StatInfoItem icon={<ProductsIcon />} title="Products" count={productQty} to={AppRoutes.PRODUCTS} />
         </div>
     );
 };
