@@ -12,6 +12,12 @@
 - App
   - Theme switcher, theme stores in localStorage
   - Autorization
+  - Users page with view/edit/delete user
+  - Posts page 
+  - Products page
+
+## Live
+in progress...
 
 ## Stack
 <p>
