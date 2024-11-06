@@ -99,7 +99,6 @@ export const LoginForm = memo(
                             onChange={onChangePassword}
                             variant={ButtonVariant.OUTLINE}
                             type="text"
-                            // name="password"
                             register={register('password', {
                                 required: 'Password required',
                                 minLength: { value: 5, message: 'Password min length is 5 letters' },
