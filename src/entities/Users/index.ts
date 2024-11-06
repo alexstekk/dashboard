@@ -24,8 +24,8 @@ export { selectUsersList } from './model/selectors/selectUsersList/selectUsersLi
 export { selectUsersPageNumber } from './model/selectors/selectUsersPageNumber/selectUsersPageNumber';
 export { selectUsersPageSize } from './model/selectors/selectUsersPageSize/selectUsersPageSize';
 export { selectUsersQty } from './model/selectors/selectUsersQty/selectUsersQty';
-export { selectUsersState } from 'entities/Users/model/selectors/selectUsersState/selectUsersState';
-export { selectUsersTotal } from './model/selectors/selectUsersTotal/SelectUsersTotal';
+export { selectUsersState } from './model/selectors/selectUsersState/selectUsersState';
+export { selectUsersTotal } from './model/selectors/selectUsersTotal/selectUsersTotal';
 
 // ui
 export { UserCard } from './ui/UserCard/UserCard';
