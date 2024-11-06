@@ -76,22 +76,7 @@ export const LoginForm = memo(
                     </div>
                     <div className={styles.tips}>
                         <p>
-                            Please, sign in with following username and password:
-                            emilys, emilyspass,
-                            <br />
-                            or, just click
-                            {' '}
-                            <span
-                                onClick={fillInputs}
-                                style={{
-                                    textDecoration: 'underline',
-                                    textDecorationStyle: 'dashed',
-                                    textDecorationThickness: 1,
-                                    cursor: 'pointer',
-                                }}
-                            >
-                                here
-                            </span>
+                            Please, sign in.
                         </p>
                     </div>
                     {
@@ -105,7 +90,6 @@ export const LoginForm = memo(
                             variant={ButtonVariant.OUTLINE}
                             type="text"
                             // name="username"
-
                             register={register('username', { required: 'Username required' })}
                         />
                         {errors?.username ? <p className={styles.error}>{errors?.username?.message}</p> : null}

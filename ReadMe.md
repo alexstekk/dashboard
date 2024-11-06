@@ -11,7 +11,7 @@
 - StyleLint config
 - App
   - Theme switcher, theme stores in localStorage
-  - Autorization
+  - Autorization (test auth data: emilys, emilyspass)
   - Users page with view/edit/delete user
   - Posts page 
   - Products page
