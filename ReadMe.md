@@ -17,7 +17,7 @@
   - Products page
 
 ## Live
-in progress...
+https://dashboard-pi-two-58.vercel.app/
 
 ## Stack
 <p>
